@@ -1,0 +1,50 @@
+
+input[type=text],input[type=email],input[type=password]{
+  margin-right: 10px;
+  margin-bottom: 15px;
+   background-color: #DDDDDD;
+   outline: none;
+   border: none;
+   height: 35px;
+   border-radius: 5px;
+   padding-left: 30px;
+   font-family: 'Roboto', sans-serif;
+ }
+ input::placeholder{
+   text-align: left;
+   padding-left: 20px;
+   color:black;
+ }
+
+ .group_block{
+   width: 97%;
+
+ }
+ .group_inline{
+   flex: 1;
+
+ }
+
+ button
+ {
+   color:#DDDDDD;
+   background-color: #920305;
+   outline: none;
+   border: none;
+   height: 35px;
+   border-radius: 5px;
+   width: 97%;
+
+   cursor: pointer;
+ }
+ h1{
+   padding: 40px;
+   font-family: 'Roboto', sans-serif;
+ }
+
+ input:focus::placeholder {
+   opacity: 0;
+ }
+
+
+
