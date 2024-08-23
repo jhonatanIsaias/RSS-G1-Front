@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input,Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-form-register',
@@ -8,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './form-register.component.css'
 })
 export class FormRegisterComponent {
+  @Input() formFlag:boolean = false ;
+  @Output() continueClicked = new EventEmitter<void>();
 
+  emitContinueEvent(event : Event) {
+    event.preventDefault();
+    this.continueClicked.emit();
+  }
 }
+

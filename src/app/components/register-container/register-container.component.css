@@ -26,3 +26,16 @@
   justify-content: center;
   align-items: center;
 }
+.selectors{
+position: absolute;
+padding-left: 30%;
+}
+
+.selector{
+  display: inline-block;
+  margin-right: 2px;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background-color:#920305;
+}
