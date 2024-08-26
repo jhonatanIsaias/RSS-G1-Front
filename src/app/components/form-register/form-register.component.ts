@@ -1,19 +1,31 @@
 import { Component, Input,Output, EventEmitter } from '@angular/core';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+
+
 
 @Component({
   selector: 'app-form-register',
   standalone: true,
-  imports: [],
+  imports: [MatFormFieldModule,MatInputModule,MatDatepickerModule,MatNativeDateModule],
   templateUrl: './form-register.component.html',
   styleUrl: './form-register.component.css'
 })
 export class FormRegisterComponent {
-  @Input() formFlag:boolean = false ;
+  @Input() formFlag:number = 1 ;
   @Output() continueClicked = new EventEmitter<void>();
+  @Output() backClicked = new EventEmitter<void>();
 
   emitContinueEvent(event : Event) {
     event.preventDefault();
     this.continueClicked.emit();
+  }
+
+  emitBackEvent(event : Event) {
+    event.preventDefault();
+    this.backClicked.emit();
   }
 }
 

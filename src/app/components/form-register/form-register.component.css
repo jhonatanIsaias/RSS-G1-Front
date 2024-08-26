@@ -36,6 +36,18 @@ input[type=text],input[type=email],input[type=password]{
    width: 97%;
 
    cursor: pointer;
+
+
+ }
+
+ .buttons{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .button-voltar , .button-continuar{
+  width: 50%;
  }
  h1{
    padding: 40px;
@@ -46,5 +58,49 @@ input[type=text],input[type=email],input[type=password]{
    opacity: 0;
  }
 
+ /* datePicker  */
+ .datePicker{
+  width: 97%;
+ }
+
+ ::ng-deep .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper{
+  background-color: #DDDDDD;
+ }
+
+ ::ng-deep .mat-calendar-header{
+  background-image: linear-gradient(to right,#920305, #96282a, rgb(226, 182, 182));
+ }
+
+ ::ng-deep .mat-mdc-form-field-subscript-wrapper{
+  color: black;
+ }
+
+::ng-deep .mat-calendar-period-button{
+  background-color: black;
+}
+::ng-deep  .mat-mdc-button.mat-unthemed {
+ --mdc-text-button-label-text-color: black;
+}
+
+::ng-deep .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-floating-label{
+  color: black;
+}
+
+::ng-deep .mat-mdc-icon-button.mat-mdc-button-base{
+  color: black;
+}
+::ng-deep .mat-datepicker-toggle,
+::ng-deep .mat-datepicker-content .mat-calendar-next-button,
+::ng-deep .mat-datepicker-content .mat-calendar-previous-button{
+  color: black !important;
+}
 
 
+
+
+/*::ng-deep .mat-mdc-button-ripple {
+  background-color: black;
+}*/
+::ng-deep .mdc-notched-outline .mdc-notched-outline--upgraded {
+  border: none;
+}
