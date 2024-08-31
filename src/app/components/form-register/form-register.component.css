@@ -10,8 +10,19 @@
   }
 }
 
-form, .form_2 {
+form {
   animation: fadeIn 0.5s ease-in-out;
+}
+.form_inline{
+
+  display: flex;
+  justify-content:space-around;
+}
+
+
+p{
+  font-size:10px ;
+  margin-bottom: 10px;
 }
 
 input[type=text], input[type=email], input[type=password] {
@@ -40,10 +51,6 @@ input::placeholder {
 
 .group_block {
   width: 97%;
-}
-
-.group_inline {
-  flex: 1;
 }
 
 button {

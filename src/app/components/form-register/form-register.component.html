@@ -1,43 +1,69 @@
 <h1>Cadastre-se</h1>
 
-<form action="" method="post">
-  @if(formFlag == 1){
-  <div>
-    <input class="group_inline" type="text" name="" id="" placeholder="primeiro nome">
-    <input class="group_inline" type="text" name="" id="" placeholder="segundo nome">
+
+@if(formFlag == 1){
+<form [formGroup]="formRegisterOne" action="" method="post">
+  <div class="form_inline">
+    <div>
+      <div style="height: 20px;">
+        <p *ngIf="!formRegisterOne.get('firstName')?.valid">* Mínimo 8 caracteres</p>
+      </div>
+      <input type="text" name="firstName" id="" placeholder="primeiro nome" formControlName="firstName">
+    </div>
+    <div>
+      <div style="height: 20px;">
+        <p *ngIf="!formRegisterOne.get('secondName')?.valid">* Mínimo 8 caracteres</p>
+      </div>
+      <input type="text" name="secondName" id="" placeholder="segundo nome" formControlName="secondName">
+    </div>
   </div>
   <div>
-    <input class="group_block" type="email" name="" id="" placeholder="email">
+    <div style="height: 20px;">
+      <p *ngIf="!formRegisterOne.get('email')?.valid">* Email invalido</p>
+    </div>
+    <input class="group_block" type="email" name="" id="" placeholder="email" formControlName="email">
   </div>
   <div>
-    <input class="group_inline" type="password" name="" id="" placeholder="senha">
-    <input class="group_inline" type="password" name="" id="" placeholder="confime sua senha">
+    <div style="height: 20px;">
+      <p *ngIf="!formRegisterOne.get('password')?.valid">* Mínimo 8 caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e um caractere especial </p>
+    </div>
+    <input class="group_block" type="password" name="" id="" placeholder="password" formControlName="password">
+  </div>
+  <div>
+    <div style="height: 20px;">
+      <p  *ngIf="formRegisterOne.hasError('passwordsDoNotMatch')">* As senhas devem ser iguais</p>
+    </div>
+    <input class="group_block" type="password" name="" id="" placeholder="confirmPassword" formControlName="confirmPassword">
   </div>
   <div button_register>
-    <button (click)="emitContinueEvent($event)">Continuar</button>
+    <button (click)="emitContinueEvent($event)" [disabled]="!formRegisterOne.valid">Continuar</button>
   </div>
-  }@else if(formFlag == 2) {
-  <div class="form_2">
-    <div>
-      <input class="group_inline" type="text" name="" id="" placeholder="login">
-      <input class="group_inline" type="text" name="" id="" placeholder="telefone" mask="(00) 00000-0000">
-    </div>
-    <div>
-      <mat-form-field appearance="outline" class="datePicker">
-        <mat-label>Data de Nascimento</mat-label>
-        <input matInput [matDatepicker]="picker">
-        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-datepicker #picker></mat-datepicker>
-      </mat-form-field>
-    </div>
-    <div class="buttons">
-      <div button_register class="button-voltar">
-        <button (click)="emitBackEvent($event)">Voltar</button>
-      </div>
-      <div button_register class="button-continuar">
-        <button (click)="emitContinueEvent($event)">Continuar</button>
-      </div>
-    </div>
-  </div>
-  }
 </form>
+}@else if(formFlag == 2) {
+
+
+
+<form [formGroup]="formRegisterTwo">
+  <div>
+    <input class="group_inline" type="text" name="" id="" placeholder="login" formControlName="login">
+    <input class="group_inline" type="text" name="" id="" placeholder="telefone" mask="(00) 00000-0000"
+      formControlName="phone">
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="datePicker">
+      <mat-label>Data de Nascimento</mat-label>
+      <input matInput [matDatepicker]="picker">
+      <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+  </div>
+  <div class="buttons">
+    <div button_register class="button-voltar">
+      <button (click)="emitBackEvent($event)">Voltar</button>
+    </div>
+    <div button_register class="button-continuar">
+      <button (click)="emitContinueEvent($event)">Continuar</button>
+    </div>
+  </div>
+</form>
+}
