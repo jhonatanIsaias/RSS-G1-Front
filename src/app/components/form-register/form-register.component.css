@@ -169,45 +169,34 @@ input:focus::placeholder {
   display: inline;
 }
 
-/* datePicker */
-.datePicker {
+
+input[type="date"]{
   width: 97%;
-}
-
-::ng-deep .mat-mdc-form-field-has-icon-suffix .mat-mdc-text-field-wrapper {
-  background-color: #DDDDDD;
-}
-
-::ng-deep .mat-calendar-header {
-  background-image: linear-gradient(to right, #920305, #96282a, rgb(226, 182, 182));
-}
-
-::ng-deep .mat-mdc-form-field-subscript-wrapper {
-  color: black;
-}
-
-::ng-deep .mat-calendar-period-button {
-  background-color: black;
-}
-
-::ng-deep .mat-mdc-button.mat-unthemed {
-  --mdc-text-button-label-text-color: black;
-}
-
-::ng-deep .mat-mdc-form-field:not(.mat-form-field-no-animations) .mdc-floating-label {
-  color: black;
-}
-
-::ng-deep .mat-mdc-icon-button.mat-mdc-button-base {
-  color: black;
-}
-
-::ng-deep .mat-datepicker-toggle,
-::ng-deep .mat-datepicker-content .mat-calendar-next-button,
-::ng-deep .mat-datepicker-content .mat-calendar-previous-button {
-  color: black !important;
-}
-
-::ng-deep .mdc-notched-outline .mdc-notched-outline--upgraded {
+  height: 37px;
+  border-radius: 5px;
   border: none;
+  background: #DDDDDD url(../../../assets/img/calendar.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right;
+  font-weight: 12px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator{
+  opacity: 0;
+  width: 120px;
+  height: 120px;
+}
+
+input[type="date"]:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.aviso{
+  font-size: 15px;
 }

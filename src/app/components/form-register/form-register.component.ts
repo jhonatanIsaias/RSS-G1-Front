@@ -31,7 +31,7 @@ export class FormRegisterComponent {
   @Input() formFlag:number = 1 ;
   @Output() continueClicked = new EventEmitter<void>();
   @Output() backClicked = new EventEmitter<void>();
-  
+
 
 
   formRegisterOne = new FormGroup({
@@ -49,7 +49,7 @@ export class FormRegisterComponent {
  formRegisterTwo = new FormGroup({
   login: new FormControl('',Validators.required),
   phone: new FormControl('',Validators.required),
-  birthDate: new FormControl('',Validators.required)
+  birthDate: new FormControl(null,Validators.required)
 });
 
 passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
