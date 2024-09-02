@@ -175,7 +175,7 @@ input[type="date"]{
   height: 37px;
   border-radius: 5px;
   border: none;
-  background: #DDDDDD url(../../../assets/img/calendar.png);
+  background: #DDDDDD url(../../../../../assets/img/calendar.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
