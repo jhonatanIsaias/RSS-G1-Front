@@ -23,11 +23,12 @@ form {
 p{
   font-size:10px ;
   margin-bottom: 10px;
+  color:red;
 }
 
 input[type=text], input[type=email], input[type=password] {
   margin-right: 10px;
-  margin-bottom: 15px;
+  margin-bottom: 3px;
   background-color: #DDDDDD;
   outline: none;
   border: none;
@@ -63,6 +64,7 @@ button {
   width: 97%;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-top: 10px;
 }
 
 button:hover {
@@ -74,19 +76,97 @@ button:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  width:100%;
 }
 
 .button-voltar, .button-continuar {
   width: 50%;
 }
 
+/* Customização para checkbox */
+.checkbox-custom {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.checkbox-custom input[type="checkbox"] {
+  display: none; /* Esconde o checkbox padrão */
+}
+
+.checkbox-custom label {
+  position: relative;
+  padding-left: 25px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+}
+
+.checkbox-custom label::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  border: 2px solid #920305;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + label::before {
+  background-color: #920305;
+  border-color: #920305;
+}
+
+.checkbox-custom input[type="checkbox"]:checked + label::after {
+  content: '';
+  position: absolute;
+  left: 4px;
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+}
+
+
 h1 {
   padding: 40px;
   font-family: 'Roboto', sans-serif;
 }
+h2{
+  font-family: 'Roboto', sans-serif;
+  width:100%;
+  font-size: 20px;
+  padding: 30px;
+  text-align: center;
+}
 
 input:focus::placeholder {
   opacity: 0;
+}
+.categories{
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.categories-part-1{
+  display: inline-block;
+ padding-left: 120px;
+
+}
+
+.categories-part-2{
+  display: inline-block;
+}
+.input-inline{
+  display: inline;
 }
 
 /* datePicker */

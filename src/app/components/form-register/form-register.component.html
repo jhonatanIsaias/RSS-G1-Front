@@ -6,43 +6,44 @@
   <div class="form_inline">
     <div>
       <div style="height: 20px;">
-        <p *ngIf="!formRegisterOne.get('firstName')?.valid">* Mínimo 8 caracteres</p>
+        <p *ngIf="!formRegisterOne.get('firstName')?.valid && formRegisterOne.get('firstName')?.touched">* Mínimo 8
+          caracteres</p>
       </div>
       <input type="text" name="firstName" id="" placeholder="primeiro nome" formControlName="firstName">
     </div>
     <div>
       <div style="height: 20px;">
-        <p *ngIf="!formRegisterOne.get('secondName')?.valid">* Mínimo 8 caracteres</p>
+        <p *ngIf="!formRegisterOne.get('secondName')?.valid && formRegisterOne.get('secondName')?.touched">* Mínimo 8
+          caracteres</p>
       </div>
       <input type="text" name="secondName" id="" placeholder="segundo nome" formControlName="secondName">
     </div>
   </div>
   <div>
     <div style="height: 20px;">
-      <p *ngIf="!formRegisterOne.get('email')?.valid">* Email invalido</p>
+      <p *ngIf="!formRegisterOne.get('email')?.valid && formRegisterOne.get('email')?.touched">* Email invalido</p>
     </div>
     <input class="group_block" type="email" name="" id="" placeholder="email" formControlName="email">
   </div>
   <div>
     <div style="height: 20px;">
-      <p *ngIf="!formRegisterOne.get('password')?.valid">* Mínimo 8 caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e um caractere especial </p>
+      <p *ngIf="!formRegisterOne.get('password')?.valid && formRegisterOne.get('password')?.touched">* Mínimo 8
+        caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e um caractere especial </p>
     </div>
     <input class="group_block" type="password" name="" id="" placeholder="password" formControlName="password">
   </div>
   <div>
     <div style="height: 20px;">
-      <p  *ngIf="formRegisterOne.hasError('passwordsDoNotMatch')">* As senhas devem ser iguais</p>
+      <p *ngIf="formRegisterOne.hasError('passwordsDoNotMatch')">* As senhas devem ser iguais</p>
     </div>
-    <input class="group_block" type="password" name="" id="" placeholder="confirmPassword" formControlName="confirmPassword">
+    <input class="group_block" type="password" name="" id="" placeholder="confirmPassword"
+      formControlName="confirmPassword">
   </div>
   <div button_register>
     <button (click)="emitContinueEvent($event)" [disabled]="!formRegisterOne.valid">Continuar</button>
   </div>
 </form>
 }@else if(formFlag == 2) {
-
-
-
 <form [formGroup]="formRegisterTwo">
   <div>
     <input class="group_inline" type="text" name="" id="" placeholder="login" formControlName="login">
@@ -63,6 +64,81 @@
     </div>
     <div button_register class="button-continuar">
       <button (click)="emitContinueEvent($event)">Continuar</button>
+    </div>
+  </div>
+</form>
+}@else if (formFlag == 3) {
+<form style="width: 100%;">
+  <h2>Escolha as Categorias que deseja ver as noticias:</h2>
+  <div class="categories">
+    <div class="categories-part-1">
+      <div class="checkbox-custom" style="width: 300px;">
+        <input type="checkbox" name="" id="carros-category">
+        <label for="carros-category"> Carros (Autoesporte.com)</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="ciencia-saude-category">
+        <label for="ciencia-saude-category"> Ciência e Saúde</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="concurso-empregos-cateogy">
+        <label for="concurso-empregos-cateogy"> Concursos e Emprego</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="economia-category">
+        <label for="economia-category"> Economia</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="educação">
+        <label for="educação"> Educação</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="loterias-category">
+        <label for="loterias-category"> Educação</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="mundo-category">
+        <label for="mundo-category"> Mundo</label>
+      </div>
+
+    </div>
+    <div class="categories-part-2">
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="musica-category">
+        <label for="musica-category"> Música</label>
+      </div>
+      <div class="checkbox-custom" style="width: 120px;">
+        <input type="checkbox" name="" id="natureza-category">
+        <label for="natureza-category"> Natureza</label>
+      </div>
+      <div class="checkbox-custom" style="width: 300px;">
+        <input type="checkbox" name="" id="planeta-bizarro-category">
+        <label for="planeta-bizarro-category"> Planeta Bizarro</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="politica-category">
+        <label for="politica-category"> Política</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="pop-arte-category">
+        <label for="pop-arte-category"> Pop & Arte</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="tecnologia-games-category">
+        <label for="tecnologia-games-category"> Tecnologia e Games</label>
+      </div>
+      <div class="checkbox-custom">
+        <input type="checkbox" name="" id="turismo-viagem-category">
+        <label for="turismo-viagem-category"> Turismo e Viagem</label>
+      </div>
+    </div>
+  </div>
+  <div class="buttons">
+    <div style="width: 45%;" button_register class="button-voltar">
+      <button (click)="emitBackEvent($event)">Voltar</button>
+    </div>
+    <div style="width: 45%;" button_register class="button-continuar">
+      <button (click)="emitContinueEvent($event)">Registrar</button>
     </div>
   </div>
 </form>

@@ -13,19 +13,26 @@ import { NgStyle } from '@angular/common';
 export class RegisterContainerComponent implements AfterContentChecked {
 
 
-  selectFlag:number = 1;
+  selectFlag:number = 3;
   color_select1 = "";
   color_select2 = "";
-
+  color_select3 = "";
 
   colorSelect() {
     if (this.selectFlag == 1) {
       this.color_select1 = "#920305";
       this.color_select2 = "#a39999";
+      this.color_select3 = "#a39999";
     }
-    else {
+    else if(this.selectFlag == 2) {
       this.color_select1 = "#a39999";
       this.color_select2 = "#920305";
+      this.color_select3 = "#a39999";
+    }
+    else{
+      this.color_select1 = "#a39999";
+      this.color_select2 = "#a39999";
+      this.color_select3 = "#920305";
     }
   }
   handleContinueClick() {
