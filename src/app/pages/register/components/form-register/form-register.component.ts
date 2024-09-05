@@ -6,6 +6,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { FormGroup, FormControl,ReactiveFormsModule, Validators,AbstractControl,ValidationErrors} from '@angular/forms';
 import { NgIf } from '@angular/common';
+import { FormRegisterService } from '../../../../services/form-register.service';
 
 
 
@@ -27,16 +28,35 @@ import { NgIf } from '@angular/common';
 })
 export class FormRegisterComponent {
 
+  constructor(private service: FormRegisterService){
 
+  }
   @Input() formFlag:number = 1 ;
   @Output() continueClicked = new EventEmitter<void>();
   @Output() backClicked = new EventEmitter<void>();
 
 
+  private categoriesMap: { [key: string]: number } = {
+    'carros-category': 1,
+    'ciencia-saude-category': 2,
+    'concurso-empregos-cateogy': 3,
+    'economia-category': 4,
+    'educacao-category': 5,
+    'loterias-category': 6,
+    'mundo-category': 7,
+    'musica-category': 8,
+    'natureza-category': 9,
+    'planeta-bizarro-category': 10,
+    'politica-category': 11,
+    'pop-arte-category': 12,
+    'tecnologia-games-category': 13,
+    'turismo-viagem-category': 14
+  };
+
 
   formRegisterOne = new FormGroup({
-    firstName: new FormControl('',[Validators.required,Validators.minLength(8)]),
-    secondName: new FormControl('',[Validators.required,Validators.minLength(8)]),
+    firstName: new FormControl('',[Validators.required]),
+    secondName: new FormControl('',[Validators.required]),
     email: new FormControl('',[Validators.required, Validators.email]),
     password: new FormControl('',
       [
@@ -51,6 +71,24 @@ export class FormRegisterComponent {
   phone: new FormControl('',Validators.required),
   birthDate: new FormControl(null,Validators.required)
 });
+
+formCategories = new FormGroup({
+  carros: new FormControl(false),
+  cienciaSaude: new FormControl(false),
+  concursoEmpregos: new FormControl(false),
+  economia: new FormControl(false),
+  educacao: new FormControl(false),
+  loterias: new FormControl(false),
+  mundo: new FormControl(false),
+  musica: new FormControl(false),
+  natureza: new FormControl(false),
+  planetaBizarro: new FormControl(false),
+  politica: new FormControl(false),
+  popArte: new FormControl(false),
+  tecnologiaGames: new FormControl(false),
+  turismoViagem: new FormControl(false),
+});
+
 
 passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
   const password = control.get('password');
@@ -73,6 +111,36 @@ passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     this.backClicked.emit();
   }
 
+  preventDefault(event:Event){
+    event.preventDefault();
+  }
 
+  submitForm(){
+    const selectedCategories: number[] = [];
+
+    Object.keys(this.formCategories.controls).forEach((key) => {
+      if (this.formCategories.get(key)?.value) {
+        selectedCategories.push(this.categoriesMap[`${key}-category`]);
+      }
+    });
+
+  const data =   {
+   name : `${this.formRegisterOne.get('firstName')?.value} ${this.formRegisterOne.get('secondName')?.value}`,
+   email: this.formRegisterOne.get('email')?.value,
+   password: this.formRegisterOne.get('password')?.value,
+   login: this.formRegisterTwo.get('login')?.value,
+   phone: this.formRegisterTwo.get('phone')?.value,
+   birth_date: this.formRegisterTwo.get('birthDate')?.value,
+   status:true,
+   categories :selectedCategories
+    }
+    this.service.registerUser(data).subscribe({
+      next: (res) => {
+        console.log(res);
+      },error : (error) => {
+
+      }
+    });
+  }
 }
 
