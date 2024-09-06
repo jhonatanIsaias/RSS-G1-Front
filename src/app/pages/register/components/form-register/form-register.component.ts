@@ -5,7 +5,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MatNativeDateModule} from '@angular/material/core';
 import { NgxMaskDirective, provideNgxMask } from 'ngx-mask';
 import { FormGroup, FormControl,ReactiveFormsModule, Validators,AbstractControl,ValidationErrors} from '@angular/forms';
-import { NgIf } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { FormRegisterService } from '../../../../services/form-register.service';
 
 
@@ -20,7 +20,8 @@ import { FormRegisterService } from '../../../../services/form-register.service'
     MatNativeDateModule,
     NgxMaskDirective,
     ReactiveFormsModule,
-    NgIf
+    NgIf,
+    NgFor
     ],
   templateUrl: './form-register.component.html',
   styleUrl: './form-register.component.css',
@@ -34,6 +35,8 @@ export class FormRegisterComponent {
   @Input() formFlag:number = 1 ;
   @Output() continueClicked = new EventEmitter<void>();
   @Output() backClicked = new EventEmitter<void>();
+  errors: string[] = [];
+  messageSuccess: boolean = false;
 
 
   private categoriesMap: { [key: string]: number } = {
@@ -135,10 +138,16 @@ passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
    categories :selectedCategories
     }
     this.service.registerUser(data).subscribe({
-      next: (res) => {
-        console.log(res);
+      next: () => {
+         this.messageSuccess = true;
+         setTimeout(() => {
+         this.messageSuccess= false;
+        }, 3000);
       },error : (error) => {
-
+         this.errors = error.error.listErrors;
+         setTimeout(() => {
+          this.errors= [];
+        }, 5000);
       }
     });
   }

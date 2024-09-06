@@ -1,4 +1,6 @@
 /* Animação para o formulário aparecer suavemente */
+
+
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -81,6 +83,7 @@ button:hover {
 
 .button-voltar, .button-continuar {
   width: 50%;
+  margin-bottom: 12px;
 }
 
 /* Customização para checkbox */
@@ -92,6 +95,7 @@ button:hover {
 
 .checkbox-custom input[type="checkbox"] {
   display: none; /* Esconde o checkbox padrão */
+
 }
 
 .checkbox-custom label {
@@ -99,7 +103,8 @@ button:hover {
   padding-left: 25px;
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
-  font-size: 14px;
+  font-size: 15px;
+  font-weight: bold;
 }
 
 .checkbox-custom label::before {
@@ -108,8 +113,8 @@ button:hover {
   left: 0;
   top: 50%;
   transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  width: 20px;
+  height: 20px;
   border: 2px solid #920305;
   border-radius: 3px;
   background-color: #FFFFFF;
@@ -199,4 +204,13 @@ input[type="date"]:focus {
 
 .aviso{
   font-size: 15px;
+}
+
+.error_container p{
+  color:black;
+  font-size: 15px;
+ 
+}
+.error_container{
+  animation: fadeIn 0.5s ease-in-out;
 }

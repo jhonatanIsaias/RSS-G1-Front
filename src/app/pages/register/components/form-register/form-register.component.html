@@ -1,4 +1,4 @@
-<h1>Cadastre-se</h1>
+<h1 class="text-5xl">Cadastre-se</h1>
 @if(formFlag == 1 || formFlag == 2){
 <p class="aviso">*Todos Os campos de formulários são obrigatórios!</p>
 }
@@ -128,12 +128,23 @@
     </div>
   </div>
   <div class="buttons">
-    <div style="width: 45%;" button_register class="button-voltar">
+    <div style="width: 45%; padding-bottom: 20px;" button_register class="button-voltar">
       <button (click)="emitBackEvent($event)">Voltar</button>
     </div>
-    <div style="width: 45%;" button_register class="button-continuar">
+    <div style="width: 45%; padding-bottom: 20px;" button_register class="button-continuar">
       <button (click)="preventDefault($event)" (click)="submitForm()">Registrar</button>
     </div>
   </div>
+
+
 </form>
 }
+@if(errors.length != 0){
+  <div *ngFor="let e of errors"  class="fixed top-4 right-0 bg-red-500 text-black p-4 rounded-lg error_container">
+    <p>{{e}}</p>
+  </div>
+}
+<div *ngIf="messageSuccess" class="fixed top-4 right-0 bg-green-500 text-black p-4 rounded-lg error_container">
+  <p>usuário cadastrado com sucesso</p>
+</div>
+
