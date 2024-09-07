@@ -28,24 +28,45 @@ p{
   color:red;
 }
 
-input[type=text], input[type=email], input[type=password] {
-  margin-right: 10px;
-  margin-bottom: 3px;
-  background-color: #DDDDDD;
-  outline: none;
-  border: none;
-  height: 35px;
-  border-radius: 5px;
-  padding-left: 30px;
-  font-family: 'Roboto', sans-serif;
-  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
 }
 
-input:focus {
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 97%;
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.input-container label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 16px;
+  color: #999;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+
+.input-container input:focus + label,
+.input-container input:not(:placeholder-shown) + label {
+  top: 0;
+  left: 10px;
+  font-size: 12px;
+  color: #333;
+}
+
+/*input:focus {
   background-color: #FFFFFF;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
-
+*/
 input::placeholder {
   text-align: left;
   padding-left: 20px;
@@ -66,7 +87,10 @@ button {
   width: 97%;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  margin-top: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
 }
 
 button:hover {
@@ -85,6 +109,7 @@ button:hover {
   width: 50%;
   margin-bottom: 12px;
 }
+
 
 /* Customização para checkbox */
 .checkbox-custom {
@@ -178,9 +203,9 @@ input:focus::placeholder {
 input[type="date"]{
   width: 97%;
   height: 37px;
-  border-radius: 5px;
   border: none;
-  background: #DDDDDD url(../../../../../assets/img/calendar.png);
+  border-bottom: 1px solid black;
+  background: url(../../../../../assets/img/calendar.png);
   background-size: contain;
   background-repeat: no-repeat;
   background-position: right;
@@ -198,7 +223,6 @@ input[type="date"]::-webkit-calendar-picker-indicator{
 
 input[type="date"]:focus {
   outline: none;
-  border: none;
   box-shadow: none;
 }
 
@@ -209,8 +233,12 @@ input[type="date"]:focus {
 .error_container p{
   color:black;
   font-size: 15px;
- 
+
 }
 .error_container{
   animation: fadeIn 0.5s ease-in-out;
+}
+.date-placeholder{
+  padding-top:15px;
+
 }

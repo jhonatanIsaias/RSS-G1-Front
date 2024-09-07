@@ -6,52 +6,60 @@
 @if(formFlag == 1){
 <form [formGroup]="formRegisterOne" action="" method="post">
   <div class="form_inline">
-    <div>
-      <div style="height: 20px;">
-      </div>
-      <input type="text" name="firstName" id="" placeholder="primeiro nome" formControlName="firstName">
+    <div class="input-container">
+      <input type="text" name="firstName" id="" placeholder="" formControlName="firstName">
+      <label for="firstName">Primeiro Nome</label>
     </div>
-    <div>
-      <div style="height: 20px;">
-      </div>
-      <input type="text" name="secondName" id="" placeholder="segundo nome" formControlName="secondName">
+    <div class="input-container">
+      <input type="text" name="secondName" id="" placeholder="" formControlName="secondName">
+      <label for="secondName">Segundo Nome</label>
     </div>
   </div>
-  <div>
-    <div style="height: 20px;">
-      <p *ngIf="!formRegisterOne.get('email')?.valid && formRegisterOne.get('email')?.touched">* Email invalido</p>
-    </div>
-    <input class="group_block" type="email" name="" id="" placeholder="email" formControlName="email">
+  <div style="height: 18px; margin-bottom: 3px;">
+    <p *ngIf="!formRegisterOne.get('email')?.valid && formRegisterOne.get('email')?.touched">* Email invalido</p>
   </div>
-  <div>
-    <div style="height: 20px;">
-      <p *ngIf="!formRegisterOne.get('password')?.valid && formRegisterOne.get('password')?.touched">* Mínimo 8
-        caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e 1 caractere especial </p>
-    </div>
-    <input class="group_block" type="password" name="" id="" placeholder="senha" formControlName="password">
+  <div class="input-container">
+    <input class="group_block" type="email" name="" id="" placeholder="" formControlName="email">
+    <label for="email">Email</label>
+
   </div>
-  <div>
-    <div style="height: 20px;">
-      <p *ngIf="formRegisterOne.hasError('passwordsDoNotMatch')">* As senhas devem ser iguais</p>
-    </div>
-    <input class="group_block" type="password" name="" id="" placeholder="confirme sua senha"
-      formControlName="confirmPassword">
+  <div style="height: 18px; margin-bottom: 3px;">
+    <p *ngIf="!formRegisterOne.get('password')?.valid && formRegisterOne.get('password')?.touched">* Mínimo 8
+      caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e 1 caractere especial </p>
   </div>
-  <div button_register>
+  <div class="input-container">
+    <input class="group_block" type="password" name="" id="" placeholder="" formControlName="password">
+    <label for="password">Senha</label>
+  </div>
+  <div style="height: 20px;">
+    <p *ngIf="formRegisterOne.hasError('passwordsDoNotMatch')">* As senhas devem ser iguais</p>
+  </div>
+  <div class="input-container">
+     <input class="group_block" type="password" name="" id="" placeholder="" formControlName="confirmPassword">
+     <label for="confirmPassword">Confirme sua Senha</label>
+  </div>
+  <div class="button_register">
     <button (click)="emitContinueEvent($event)" [disabled]="!formRegisterOne.valid">Continuar</button>
   </div>
 </form>
 }@else if(formFlag == 2) {
 <form [formGroup]="formRegisterTwo">
-  <div>
-    <input class="group_inline" type="text" name="" id="" placeholder="login" formControlName="login">
-    <input class="group_inline" type="text" name="" id="" placeholder="telefone" mask="(00) 00000-0000"
-      formControlName="phone">
+  <div class="form_inline">
+    <div class="input-container">
+      <input type="text" name="login" id="login" placeholder=" " formControlName="login">
+      <label for="login">Login</label>
+    </div>
+    <div class="input-container">
+      <input type="text" name="phone" id="phone" placeholder=" " mask="(00) 00000-0000" formControlName="phone">
+      <label for="phone">Telefone</label>
+    </div>
   </div>
-  <div class="date-container bg-blue">
-    <input type="date" name="" id="" placeholder="data de nascimento" formControlName="birthDate">
-    <label for="birthDate" class="date-placeholder">Data de Nascimento</label>
+
+  <div class="input-container">
+    <input type="date" name="birthDate" id="birthDate" placeholder=" " formControlName="birthDate">
+    <label for="birthDate">Data de Nascimento</label>
   </div>
+
   <div class="buttons">
     <div button_register class="button-voltar">
       <button (click)="emitBackEvent($event)">Voltar</button>
@@ -62,89 +70,88 @@
   </div>
 </form>
 }@else if (formFlag == 3) {
-<form style="width: 100%;" [formGroup]="formCategories">
-  <h2>Escolha as Categorias que deseja ver as noticias:</h2>
-  <div class="categories">
-    <div class="categories-part-1">
-      <div class="checkbox-custom" style="width: 300px;">
-        <input type="checkbox" name="" id="carros-category" formControlName="carros">
-        <label for="carros-category"> Carros (Autoesporte.com)</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="ciencia-saude-category" formControlName="cienciaSaude">
-        <label for="ciencia-saude-category"> Ciência e Saúde</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="concurso-empregos-cateogy" formControlName="concursoEmpregos">
-        <label for="concurso-empregos-cateogy"> Concursos e Emprego</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="economia-category" formControlName="economia">
-        <label for="economia-category"> Economia</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="educação" formControlName="educacao">
-        <label for="educação"> Educação</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="loterias-category" formControlName="loterias">
-        <label for="loterias-category"> Educação</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="mundo-category" formControlName="mundo">
-        <label for="mundo-category"> Mundo</label>
-      </div>
+  <form style="width: 100%;" [formGroup]="formCategories">
+    <h2>Escolha as Categorias que deseja ver as noticias:</h2>
+    <div class="categories">
+      <div class="categories-part-1">
+        <div class="checkbox-custom" style="width: 300px;">
+          <input type="checkbox" name="" id="carros-category" formControlName="carros">
+          <label for="carros-category"> Carros (Autoesporte.com)</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="ciencia-saude-category" formControlName="cienciaSaude">
+          <label for="ciencia-saude-category"> Ciência e Saúde</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="concurso-empregos-cateogy" formControlName="concursoEmpregos">
+          <label for="concurso-empregos-cateogy"> Concursos e Emprego</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="economia-category" formControlName="economia">
+          <label for="economia-category"> Economia</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="educação" formControlName="educacao">
+          <label for="educação"> Educação</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="loterias-category" formControlName="loterias">
+          <label for="loterias-category"> Educação</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="mundo-category" formControlName="mundo">
+          <label for="mundo-category"> Mundo</label>
+        </div>
 
+      </div>
+      <div class="categories-part-2">
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="musica-category" formControlName="musica">
+          <label for="musica-category"> Música</label>
+        </div>
+        <div class="checkbox-custom" style="width: 120px;">
+          <input type="checkbox" name="" id="natureza-category" formControlName="natureza">
+          <label for="natureza-category"> Natureza</label>
+        </div>
+        <div class="checkbox-custom" style="width: 300px;">
+          <input type="checkbox" name="" id="planeta-bizarro-category" formControlName="planetaBizarro">
+          <label for="planeta-bizarro-category"> Planeta Bizarro</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="politica-category" formControlName="politica">
+          <label for="politica-category"> Política</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="pop-arte-category" formControlName="popArte">
+          <label for="pop-arte-category"> Pop & Arte</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="tecnologia-games-category" formControlName="tecnologiaGames">
+          <label for="tecnologia-games-category"> Tecnologia e Games</label>
+        </div>
+        <div class="checkbox-custom">
+          <input type="checkbox" name="" id="turismo-viagem-category" formControlName="turismoViagem">
+          <label for="turismo-viagem-category"> Turismo e Viagem</label>
+        </div>
+      </div>
     </div>
-    <div class="categories-part-2">
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="musica-category" formControlName="musica">
-        <label for="musica-category"> Música</label>
+    <div class="buttons">
+      <div style="width: 45%; padding-bottom: 20px;" button_register class="button-voltar">
+        <button (click)="emitBackEvent($event)">Voltar</button>
       </div>
-      <div class="checkbox-custom" style="width: 120px;">
-        <input type="checkbox" name="" id="natureza-category" formControlName="natureza">
-        <label for="natureza-category"> Natureza</label>
-      </div>
-      <div class="checkbox-custom" style="width: 300px;">
-        <input type="checkbox" name="" id="planeta-bizarro-category" formControlName="planetaBizarro">
-        <label for="planeta-bizarro-category"> Planeta Bizarro</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="politica-category" formControlName="politica">
-        <label for="politica-category"> Política</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="pop-arte-category" formControlName="popArte">
-        <label for="pop-arte-category"> Pop & Arte</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="tecnologia-games-category" formControlName="tecnologiaGames">
-        <label for="tecnologia-games-category"> Tecnologia e Games</label>
-      </div>
-      <div class="checkbox-custom">
-        <input type="checkbox" name="" id="turismo-viagem-category" formControlName="turismoViagem">
-        <label for="turismo-viagem-category"> Turismo e Viagem</label>
+      <div style="width: 45%; padding-bottom: 20px;" button_register class="button-continuar">
+        <button (click)="preventDefault($event)" (click)="submitForm()">Registrar</button>
       </div>
     </div>
+
+
+  </form>
+  }
+  @if(errors.length != 0){
+    <div *ngFor="let e of errors"  class="fixed top-4 right-0 bg-red-500 text-black p-4 rounded-lg error_container">
+      <p>{{e}}</p>
+    </div>
+  }
+  <div *ngIf="messageSuccess" class="fixed top-4 right-0 bg-green-500 text-black p-4 rounded-lg error_container">
+    <p>usuário cadastrado com sucesso</p>
   </div>
-  <div class="buttons">
-    <div style="width: 45%; padding-bottom: 20px;" button_register class="button-voltar">
-      <button (click)="emitBackEvent($event)">Voltar</button>
-    </div>
-    <div style="width: 45%; padding-bottom: 20px;" button_register class="button-continuar">
-      <button (click)="preventDefault($event)" (click)="submitForm()">Registrar</button>
-    </div>
-  </div>
-
-
-</form>
-}
-@if(errors.length != 0){
-  <div *ngFor="let e of errors"  class="fixed top-4 right-0 bg-red-500 text-black p-4 rounded-lg error_container">
-    <p>{{e}}</p>
-  </div>
-}
-<div *ngIf="messageSuccess" class="fixed top-4 right-0 bg-green-500 text-black p-4 rounded-lg error_container">
-  <p>usuário cadastrado com sucesso</p>
-</div>
-
