@@ -36,6 +36,7 @@ p{
 input[type="text"], input[type="email"], input[type="password"] {
   width: 97%;
   padding: 10px;
+  padding-left: 25px;
   border: none;
   border-bottom: 1px solid black;
   outline: none;
@@ -45,7 +46,7 @@ input[type="text"], input[type="email"], input[type="password"] {
 
 .input-container label {
   position: absolute;
-  left: 10px;
+  left: 25px;
   top: 50%;
   transform: translateY(-50%);
   font-size: 16px;
@@ -213,6 +214,24 @@ input[type="date"]{
   cursor: pointer;
   font-family: 'Roboto', sans-serif;
 
+}
+.first-name{
+  background: url(../../../../../assets/img/user.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.email-image{
+  background: url(../../../../../assets/img/mail.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.password-image{
+  background: url(../../../../../assets/img/key.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
 }
 
 input[type="date"]::-webkit-calendar-picker-indicator{

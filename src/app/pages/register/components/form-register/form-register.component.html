@@ -7,7 +7,7 @@
 <form [formGroup]="formRegisterOne" action="" method="post">
   <div class="form_inline">
     <div class="input-container">
-      <input type="text" name="firstName" id="" placeholder="" formControlName="firstName">
+      <input class="first-name" type="text" name="firstName" id="" placeholder="" formControlName="firstName">
       <label for="firstName">Primeiro Nome</label>
     </div>
     <div class="input-container">
@@ -19,7 +19,7 @@
     <p *ngIf="!formRegisterOne.get('email')?.valid && formRegisterOne.get('email')?.touched">* Email invalido</p>
   </div>
   <div class="input-container">
-    <input class="group_block" type="email" name="" id="" placeholder="" formControlName="email">
+    <input  class="group_block email-image" type="email" name="" id="" placeholder="" formControlName="email">
     <label for="email">Email</label>
 
   </div>
@@ -28,7 +28,7 @@
       caracteres , 1 letra maiúscula , 1 letra minúscula , 1 número e 1 caractere especial </p>
   </div>
   <div class="input-container">
-    <input class="group_block" type="password" name="" id="" placeholder="" formControlName="password">
+    <input class="group_block password-image " type="password" name="" id="" placeholder="" formControlName="password">
     <label for="password">Senha</label>
   </div>
   <div style="height: 20px;">
