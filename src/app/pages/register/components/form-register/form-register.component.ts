@@ -72,7 +72,7 @@ export class FormRegisterComponent {
       [
         Validators.required,
         Validators.minLength(8),
-        Validators.pattern('^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*(),.?":{}|<>]).+$')]),
+        Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=]).*$')]),
     confirmPassword: new FormControl('',[Validators.required])
  },{ validators: this.passwordMatchValidator });
 

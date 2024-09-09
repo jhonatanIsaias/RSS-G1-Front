@@ -1,0 +1,105 @@
+/* Animação para o formulário aparecer suavemente */
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+form {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+p{
+  font-size:10px ;
+  margin-bottom: 10px;
+  color:red;
+}
+
+.input-container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  width: 97%;
+  padding: 10px;
+  padding-left: 25px;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Roboto', sans-serif;
+}
+
+
+.group_block {
+  width: 97%;
+}
+
+button {
+  color: #DDDDDD;
+  background-color: #920305;
+  outline: none;
+  border: none;
+  height: 35px;
+  border-radius: 5px;
+  width: 97%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+
+}
+
+button:hover {
+  background-color: #b30606;
+  transform: scale(1.05);
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100%;
+}
+
+
+.login-image{
+  background: url(../../../../../assets/img/user.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+.password-image{
+  background: url(../../../../../assets/img/key.png);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: left;
+}
+
+
+
+.aviso{
+  font-size: 15px;
+}
+
+.error_container p{
+  color:black;
+  font-size: 15px;
+
+}
+.error_container{
+  animation: fadeIn 0.5s ease-in-out;
+}
+a{
+  color: #920305;
+  font-weight: bold;
+}

@@ -1,0 +1,27 @@
+
+.container_login{
+  width: 1000px;
+  height: 500px;
+  background-color:#FFFF;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+
+}
+.img_login{
+  height: 90%;
+  width: 50%;
+  background-image: url("../../../../../assets/img/G1.jpg");
+  background-size: cover;
+  background-position: center;
+  border-radius: 5%;
+  margin-left: 10px;
+}
+.form_login{
+  width: 50%;
+  height: 50%;
+  display: flex;
+  flex-direction:column;
+  justify-content: center;
+  align-items: center;
+}
