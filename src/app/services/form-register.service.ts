@@ -14,7 +14,7 @@ export class FormRegisterService {
     this.baseUrl = environment.apiUrl;
    }
 
-  registerUser(user:any): Observable<User>{
+  registerUser(user:User): Observable<User>{
     const userJson = JSON.stringify(user);
     const headers = { 'Content-Type': 'application/json' };
     this.userResponse =  this.httpClient.post<User>(`${this.baseUrl}/user`,userJson, {headers});
