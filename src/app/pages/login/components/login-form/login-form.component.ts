@@ -3,7 +3,8 @@ import { FormControl, FormGroup, Validators,ReactiveFormsModule } from '@angular
 import { RouterModule } from '@angular/router';
 import { FormLoginService } from '../../../../services/form-login.service';
 import Login from '../../../../models/loginModel';
-import { error } from 'console';
+import { Router } from '@angular/router';
+
 
 
 
@@ -20,8 +21,9 @@ export class LoginFormComponent {
     login: new FormControl('',Validators.required),
     password: new FormControl('',Validators.required)
   })
+  errorLogin:string = '';
 
-  constructor(private LoginService :  FormLoginService) {
+  constructor(private LoginService :  FormLoginService, private router: Router) {
 
   }
     loginAuth: Login = new Login();
@@ -32,12 +34,11 @@ export class LoginFormComponent {
    this.loginAuth.password = this.formLogin.get('password')?.value;
       this.LoginService.login(this.loginAuth).subscribe({
         next: (token:string)=>{
-            console.log(token);
+          sessionStorage.setItem('authToken', token);
+          this.router.navigate(['/notices'])
         },
-        error: (error) => console.log(error)
+        error: () => this.errorLogin = 'usuário ou senha inválidos'
       } );
-
- ;
      e.preventDefault();
   }
 }

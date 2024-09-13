@@ -12,6 +12,9 @@
     <div>
       <button type="submit" (click)="submitForm($event)">Entrar</button>
     </div>
+    @if(errorLogin != ''){
+      <div><p style="color: red; text-align: center; font-size: 20px;">{{errorLogin}}</p></div>
+    }
     <div><a routerLink="/register">registre-se aqui !</a></div>
 </form>
 
