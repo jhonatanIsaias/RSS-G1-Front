@@ -34,7 +34,7 @@ export class LoginFormComponent {
    this.loginAuth.password = this.formLogin.get('password')?.value;
       this.LoginService.login(this.loginAuth).subscribe({
         next: (token:string)=>{
-          sessionStorage.setItem('authToken', token);
+          localStorage.setItem('authToken', token);
           this.router.navigate(['/notices'])
         },
         error: () => this.errorLogin = 'usuário ou senha inválidos'

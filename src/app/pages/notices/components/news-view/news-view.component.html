@@ -1,0 +1,19 @@
+<div class="menu">
+  <span>SEJA BEM VINDO !</span>
+  <span class="button-sair" (click)="buttonLogout()">SAIR</span>
+</div>
+<div class="filter-container">
+  <label for="category">Selecione a categoria:</label>
+  <select id="category" [(ngModel)]="selectedCategory">
+    <option *ngFor="let category of categoryData" [value]="category.categoryId">{{ category.name }}</option>
+  </select>
+  <button (click)="filterNews()">Filtrar Notícias</button>
+</div>
+<div class="grid-container" >
+  <div class="news-container" *ngFor="let n of filteredNews"  (click)="goToDetail(n.notice_id)">
+    <div class="news-item">
+      <img [src]="n.url_image" alt="" class="news-image" />
+      <h2 class="news-title">{{n.title}}</h2>
+    </div>
+  </div>
+</div>

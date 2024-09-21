@@ -21,11 +21,15 @@ export class FormLoginService {
 
 
    const authJson =  JSON.stringify(loginAuth);
-   console.log(authJson);
    const headers = { 'Content-Type': 'application/json' };
    this.token =  this.httpClient.post(`${this.baseUrl}/auth/login`,authJson, {headers, responseType: 'text'});
    return this.token;
   }
 
+  logout(){
+    localStorage.clear();
+  }
+
 }
+
 
